@@ -17,7 +17,6 @@ fastify.register(fastifyStatic, {
     prefix: '/'
 });
 
-// Тестовый маршрут
 fastify.get('/api/test', async (req, reply) => {
     try {
         console.log('1. Запрос к Supabase...');
