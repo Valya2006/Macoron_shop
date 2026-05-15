@@ -4,7 +4,7 @@ dotenv.config();
 import Fastify from 'fastify';
 import fastifyStatic from '@fastify/static';
 import formbody from '@fastify/formbody';
-// import { supabase } from './db/supabase.js';
+import cookie from '@fastify/cookie';
 import view from '@fastify/view';
 import pug from 'pug';
 import path from 'path';
@@ -13,7 +13,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const app = Fastify();
+const app = Fastify({loger: true});
 
 await app.register(fastifyStatic, {
     root: path.join(__dirname, '../public'),
@@ -21,10 +21,11 @@ await app.register(fastifyStatic, {
 });
 
 await app.register(formbody)
+await app.register(cookie)
 
 await app.register(view, {
   engine: { pug: pug },
-  root: path.join(__dirname, 'views'), // папка с шаблонами
+  root: path.join(__dirname, 'views'),
   viewExt: 'pug'
 });
 

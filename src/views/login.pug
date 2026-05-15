@@ -16,11 +16,15 @@ html(lang="ru")
           .form-group-flex
             .label-input
               label(for='email') Email
-              input(type='email' id='email' placeholder='example@mail.com' required autocomplete="username")
+              input(type='email' id='email' name='email' placeholder='example@mail.com' required autocomplete="username")
           
             .label-input
               label(for='password') Пароль
-              input(type='password' id='password' placeholder='Введите пароль' required autocomplete="password")
+              input(type='password' id='password' name='password' placeholder='Введите пароль' required autocomplete="password")
+
+          .errors-container(style=errors && errors.length ? 'display: flex' : 'display: none')
+            each error in errors
+              p #{error}
 
           .button-container
             button.pink-button(type='submit') Войти

@@ -136,3 +136,23 @@
 	text-align: start;
 	margin-bottom: 20px;
 }
+
+.errors-container {
+	display: none;
+	flex-direction: column;
+	box-sizing: border-box;
+	gap: 10px;
+	padding: 10px 0;
+	width: 95%;
+	background-color: rgb(250, 131, 131);
+	border: solid 3px rgb(252, 113, 113);
+	border-radius: 2px;
+	color: aliceblue;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.errors-container p {
+	padding-left: 20px;
+	margin: 0;
+}
