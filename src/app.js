@@ -3,6 +3,7 @@ dotenv.config();
 
 import Fastify from 'fastify';
 import fastifyStatic from '@fastify/static';
+import formbody from '@fastify/formbody';
 // import { supabase } from './db/supabase.js';
 import view from '@fastify/view';
 import pug from 'pug';
@@ -19,6 +20,8 @@ await app.register(fastifyStatic, {
     prefix: '/'
 });
 
+await app.register(formbody)
+
 await app.register(view, {
   engine: { pug: pug },
   root: path.join(__dirname, 'views'), // папка с шаблонами
@@ -28,6 +31,10 @@ await app.register(view, {
 app.register(async (app) => {
 	await app.register(import('./routes/login.js'))
 	await app.register(import('./routes/registration.js'))
+	await app.register(import('./routes/index.js'))
+	await app.register(import('./routes/cart.js'))
+	await app.register(import('./routes/create-set.js'))
+	await app.register(import('./routes/product-card.js'))
 })
 
 app.get('/', (req, res) => {
