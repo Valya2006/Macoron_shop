@@ -12,3 +12,84 @@ body {
   padding: 0;
 	background-color: #f3f3f3;
 }
+
+header {
+	display: flex;
+	flex-direction: column;
+	justify-self: start;
+
+	background-color: aliceblue;
+	width: 100%;
+	height: 200px;
+
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.metadata {
+	display: flex;
+	justify-content: end;
+	box-sizing: border-box;
+	width: 100%;
+	height: 50px;
+	gap: 20px;
+	background-color: #f7ebe5;
+
+	padding-right: 40px;
+}
+
+.round-image {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.nav-bar {
+	display: flex;
+	padding-top: 10px;
+	justify-content: center;
+	gap: 50px;
+	width: 100%;
+	height: 150px;
+}
+
+.nav-bar .navigation {
+	display: flex;
+	gap: 20px;
+	align-items: center;
+	padding: 10px;
+}
+
+.navigation a {
+	text-decoration: none;
+	color: black;
+
+	transition: all 0.1s ease;
+}
+
+.navigation a:hover {
+	color: rgb(95, 194, 209);
+}
+
+.description {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	justify-content: center;
+	align-items: center;
+	margin: 30px 0;
+	width: 50%;
+	height: 100px;
+
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	font-size: 13px;
+	text-align: center;
+}
+
+.description h1 {
+	color: #292929;
+}
