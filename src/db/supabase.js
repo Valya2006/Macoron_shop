@@ -41,4 +41,17 @@ export const userQueries = {
 
 		return data
 	}
+};
+
+export const dessertsQueries = {
+	getAll: async () => {
+		const { data, error } = await supabase
+			.from('desserts')
+			.select('*')
+		
+		if (error) throw error;
+
+		return data;
+	}
+	
 }
