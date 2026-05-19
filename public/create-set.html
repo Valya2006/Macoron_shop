@@ -89,12 +89,22 @@
 	<div class="totalPrice">
 		<p>Общая стоимость набора без учета доставки составит:</p>
 		<p price>0</p>
-		<button type="button">
+		<button type="button" class="addToSet">
 			<svg width="15" height="21" viewBox="0 0 15 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M13.9913 5.07086H0.700195V19.7H13.9913V5.07086Z" stroke="white" stroke-width="1.4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 				<path d="M3.82227 6.85494V3.10846C3.82227 1.77044 4.80349 0.700012 5.96311 0.700012H8.72837C9.888 0.700012 10.8692 1.77044 10.8692 3.10846V6.85494" stroke="white" stroke-width="1.4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
 			</svg>
 			в корзину</button>
+	</div>
+	<div class="modal-overlay"></div>
+	<div class="set-name-modal">
+		<h4>Придумайте название Вашему набору</h4>
+		<input type="text" name="title-set-users" placeholder='Введите название' required>
+		<div class="bth-modal">
+			<button class="back">Отменить</button>
+			<button class="addToSetCart">Добавить</button>
+		</div>
+
 	</div>
 </body>
 </html>

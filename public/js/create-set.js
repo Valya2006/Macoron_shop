@@ -185,11 +185,95 @@ const removeFromSet = (row) => {
 	console.log(currentDesserts)
 }
 
+// открываем модальное окно
+const handleAddToSet = () => {
+	document.addEventListener('click', (e) => {
+		const addToSetBth = e.target.closest('.addToSet')
+		if (addToSetBth) {
+			showModal()
+		}
+	})
+}
+
+// показываем модальное окно
+const showModal = () => {
+	document.querySelector('.modal-overlay').style.display = 'flex'
+	document.querySelector('.set-name-modal').style.display = 'flex'
+}
+
+// слушатель на кнопки модального окна
+const handleModal = async () => {
+	document.querySelector('.set-name-modal')
+	.addEventListener('click', async (e) => {
+		const button = e.target.closest('button')
+
+		if (!button) return;
+
+		if (button.className === 'addToSetCart') {
+			const payload = buildSetPayload()
+			await saveSet(payload)
+			hideModal()
+			renderProducts()
+		}
+
+		if (button.className === 'back') {
+			hideModal()
+		}
+	})
+}
+
+// скрываем модальное окно
+const hideModal = () => {
+	document.querySelector('.modal-overlay').style.display = 'none';
+	document.querySelector('.set-name-modal').style.display = 'none';
+}
+
+// собираем данные для отправки на сервер
+const buildSetPayload = () => {
+	const titleInput = document.querySelector('.set-name-modal input');
+	const totalPrice = document.querySelector('.totalPrice [price]')
+  const title = titleInput.value;
+  const data = {
+		title,
+		items: currentDesserts,
+		totalPrice: totalPrice.textContent
+	}
+
+	return data
+}
+
+// отправка на сервер
+const saveSet = async (data) => {
+	try {
+		const response = await fetch('/cart/add-set', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+        body: JSON.stringify(data)
+    });
+
+		if (response.ok) {
+			console.log('набор сохранен')
+			currentDesserts = []
+			window.location.href = '/cart';
+		} else {
+        console.error('Ошибка:', response.status);
+    }
+	} catch (error) {
+		console.log('Ошбика сохранения набора', error)
+
+	}
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     renderProducts();
     initPagination();
 		handleSetClick();
 		handleRemoveClick();
+		handleAddToSet();
+		handleModal();
 });
 
 

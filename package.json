@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js"
+    "dev": "liverun src/app.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "pug": "^3.0.4"
   },
   "devDependencies": {
+    "liverun": "^0.5.6",
     "nodemon": "^3.1.14"
   }
 }

@@ -261,3 +261,90 @@ h1 {
 .totalPrice button:hover {
   background-color: #e7426ba5;
 }
+
+.set-name-modal {
+	display: none;
+	position: fixed;
+	flex-direction: column;
+	box-sizing: content-box;
+	gap: 10px;
+	width: 500px;
+	height: 200px;
+	top: 35%;
+  left: 35%;
+
+	align-items: center;
+	background-color: rgb(253, 253, 253);
+	z-index: 1001;
+}
+
+.set-name-modal h4 {
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	color:#2e2d2d;
+	margin: 10px 0;
+	margin-top: 35px;
+}
+
+.set-name-modal input {
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	color:#2e2d2d;
+	padding: 6px;
+	height: 30px;
+	width: 350px;
+	border: none;
+	outline: none;
+	background-color: #e2e2e2cd;
+	border-radius: 2px;
+}
+
+.set-name-modal input:active {
+	background-color: #e2e2e2cd;
+}
+.bth-modal {
+	display: flex;
+	box-sizing: border-box;
+	justify-content: space-between;
+	align-items: center;
+	gap: 10px;
+
+	width: 360px;
+	height: 30px;
+	margin: 10px 0;
+}
+
+.bth-modal button {
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+	height: 40px;
+	width: 160px;
+	border: none;
+	border-radius: 2px;
+}
+
+.bth-modal .back {
+	background-color: rgb(253, 253, 253);
+	border: solid 1px #56A1DA;
+	color: #56A1DA;
+	font-weight: 500;
+	transition: all 0.1s ease;
+}
+
+.bth-modal .addToSetCart {
+	background-color: #E7426A;
+	color: aliceblue;
+	transition: all 0.1s ease;
+}
+
+.bth-modal .back:hover {
+	background-color: rgba(214, 214, 214, 0.377);
+}
+
+.bth-modal .addToSetCart:hover {
+	background-color: #e7426ba5;
+}
