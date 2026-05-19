@@ -8,7 +8,7 @@ export default async function (app) {
 	app.post('/login', async (req, reply) => {
 		try {
 			const user = await loginUser(req)
-			console.log(user)
+			reply.setCookie('userId', user.id)
 			reply.redirect(`/index/${user.id}`)
 		} catch (error) {
 			 console.error('Ошибка входа:', error.message);

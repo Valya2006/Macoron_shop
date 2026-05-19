@@ -76,6 +76,8 @@ header {
 }
 
 .navigation a {
+	position: relative;
+	z-index: 100;
 	text-decoration: none;
 	color: black;
 
