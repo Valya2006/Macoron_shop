@@ -52,6 +52,27 @@ export const dessertsQueries = {
 		if (error) throw error;
 
 		return data;
+	},
+
+	getLimit: async (begin, end) => {
+		const { data, error } = await supabase
+			.from('desserts')
+			.select('*')
+			.range(begin, end)
+
+		if (error) throw error;
+
+		return data;
+	},
+
+	getCont: async () => {
+		const { count, error } = await supabase
+    .from('desserts')
+    .select('*', { count: 'exact', head: true });
+
+		if (error) throw error;
+
+		return count;
 	}
 	
 }

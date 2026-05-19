@@ -45,7 +45,7 @@
 		<div class="nav-bar">
 			<div class="navigation">
 				<a href="/index/:id">Готовые наборы</a>
-				<a href="/create-set">Собрать набор</a>
+				<a href="#">Профиль</a>
 			</div>
 			<svg width="124" height="125" viewBox="0 0 124 125" fill="none" xmlns="http://www.w3.org/2000/svg">
 				<path d="M105.925 105.925C81.725 130.125 42.525 130.125 18.225 105.925C-6.075 81.625 -6.075 42.425 18.225 18.225C42.425 -6.075 81.625 -6.075 105.925 18.225C130.025 42.425 130.025 81.625 105.925 105.925Z" fill="#B3D9F3"/>
@@ -67,17 +67,34 @@
 			</svg>
 			<div class="navigation">
 				<a href="/cart">Корзина</a>
-				<a href="#">Профиль</a>
+				<a href="/create-set">Собрать набор</a>
 			</div>
 		</div>
 	</header>
 	<div class="description">
 		<p>Хотите попробовать всё сразу или взять только любимые вкусы? Выбирайте макаруны один 
 			за другим и создавайте набор, который подходит идеально именно вам.</p>
-		<h1>Соберите свой бокс</h1>
+		<h1 id="desserts-card">Соберите свой бокс</h1>
+		<div class="paginationbtn">
+			<button class="prev"><</button>
+			<div class="page">1</div>
+			<button class="next">></button>
+		</div>
 	</div>
-	<div class="deserts">
-
+	<div class="deserts"></div>
+	<h1>Ваш набор</h1>
+	<div class="set-cart">
+		
+	</div>
+	<div class="totalPrice">
+		<p>Общая стоимость набора без учета доставки составит:</p>
+		<p price>0</p>
+		<button type="button">
+			<svg width="15" height="21" viewBox="0 0 15 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M13.9913 5.07086H0.700195V19.7H13.9913V5.07086Z" stroke="white" stroke-width="1.4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+				<path d="M3.82227 6.85494V3.10846C3.82227 1.77044 4.80349 0.700012 5.96311 0.700012H8.72837C9.888 0.700012 10.8692 1.77044 10.8692 3.10846V6.85494" stroke="white" stroke-width="1.4" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+			</svg>
+			в корзину</button>
 	</div>
 </body>
 </html>

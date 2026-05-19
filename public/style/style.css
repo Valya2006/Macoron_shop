@@ -4,6 +4,7 @@ html {
 
 body {
 	display: flex;
+	overflow-x: hidden;
 	flex-direction: column;
 	justify-content: start;
 	align-items: center;
@@ -48,6 +49,7 @@ header {
 
 .nav-bar {
 	display: flex;
+	box-sizing: border-box;
 	padding-top: 10px;
 	justify-content: center;
 	gap: 50px;
@@ -79,7 +81,7 @@ header {
 	box-sizing: border-box;
 	justify-content: center;
 	align-items: center;
-	margin: 30px 0;
+	margin: 70px 0;
 	width: 50%;
 	height: 100px;
 
