@@ -1,4 +1,6 @@
 // Создание набора, логика + динамическая верстка
+import getCookie from "./common.js";
+
 
 // получаем общее количество дессертов с бд
 const getDesserts = async (page) => {
@@ -21,8 +23,6 @@ const renderProducts = async () => {
   const dessertsContainer = document.querySelector('.deserts');
 	const page = document.querySelector('.page')
 	const data = await getDesserts(parseInt(page.textContent))
-
-	console.log(data.desserts)
 
 	dessertsContainer.innerHTML = '';
 
@@ -231,12 +231,13 @@ const hideModal = () => {
 // собираем данные для отправки на сервер
 const buildSetPayload = () => {
 	const titleInput = document.querySelector('.set-name-modal input');
-	const totalPrice = document.querySelector('.totalPrice [price]')
+	const totalPrice = document.querySelector('.totalPrice [price]').textContent.split(' ')
   const title = titleInput.value;
   const data = {
 		title,
 		items: currentDesserts,
-		totalPrice: totalPrice.textContent
+		price: parseInt(totalPrice[0]),
+		isCustom: true
 	}
 
 	return data
@@ -244,8 +245,9 @@ const buildSetPayload = () => {
 
 // отправка на сервер
 const saveSet = async (data) => {
+	const userId = getCookie('userId')
 	try {
-		const response = await fetch('/cart/add-set', {
+		const response = await fetch(`/cart/add-set/${userId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

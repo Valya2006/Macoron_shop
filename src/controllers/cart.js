@@ -1,0 +1,19 @@
+import { userSetsQueries, userSetDessertsQueries, dessertsQueries } from "../db/supabase.js";
+import{ addUserToSet } from '../controllers/create-set.js'
+
+export const addSet = async (data) => {
+	const { title, items, price, isCustom, userId} = data
+	if (isCustom) {
+		try {
+			const isAddUserToSet = await addUserToSet(title, price, items, userId)
+
+			if (!isAddUserToSet) throw new Error('Дессерты не добавлены')
+
+			return true
+		} catch (error) {
+			console.error(error.messange)
+			throw error
+		}
+	}
+}
+
