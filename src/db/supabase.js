@@ -76,3 +76,15 @@ export const dessertsQueries = {
 	}
 	
 }
+
+export const sweetSets = {
+	getAll: async () => {
+		const { data, error } = await supabase
+			.from('sweet_sets')
+			.select('*')
+	
+			if (error) throw error;
+
+			return data;
+		}
+}

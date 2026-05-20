@@ -7,7 +7,7 @@ export default async function (app) {
 
 	app.get('/create-set/desserts', async (req, reply) => {
 		const { page, limit } = req.query
-		const end = parseInt(limit * page); // 1 * 4 = 4 индекс конечно карточки
+		const end = parseInt(limit * page); // 1 * 4 = 4 индекс конечной карточки
 		const start = parseInt(end - limit) // 4 - 4 = 0 индекс начальной карточки
 		const data = {}
 
