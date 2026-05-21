@@ -112,26 +112,38 @@ export const sweetSets = {
 			if (error) throw error;
 
 			return data;
+		}, 
+
+		getSetById: async (id) => {
+			const { data, error } = await supabase
+				.from('sweet_sets')
+				.select('*')
+				.eq('id', id)
+				.single()
+
+			if (error) throw error;
+
+			return data;
 		}
 }
 
 export const userSetsQueries = {
 	add: async (body) => {
-		const { error } = await supabase
+		const { data, error } = await supabase
 			.from('user_sets')
 			.insert([{
 				title: body.title,
 				price: body.price,
 				user_id: body.userId
 			}])
-			.select()
+			.select('*')
 		
 		if (error) {
 			console.error('Ошибка добавления пользовательского набора')
 			throw error
 		} else {
 			console.log('Набор успешно добавлен')
-			return true
+			return data
 		}
 	},
 
@@ -169,6 +181,44 @@ export const userSetDessertsQueries = {
 			console.log('Дессерт успешно добавлен')
 			return true
 		}
+	}
+}
+
+export const cartQueries = {
+	getAll: async (userId) => {
+		const { data, error } = await supabase
+			.from('cart')
+			.select('*')
+			.eq('user_id', userId)
+		
+		if (error) {
+			console.error('Ошибка получения товаров корзины')
+			throw error
+		}
+
+		console.log('Товары с корзины получены')
+		return data
+	},
+
+	add: async (data) => {
+		const { row, error } = await supabase
+			.from('cart')
+			.insert([{
+				quantity: data.quantity,
+				cost: data.price,
+				user_id: data.userId,
+				user_set_id: data.idUserSet
+			}])
+			.select('*')
+
+			if (error) {
+			console.error('Ошибка добавления набора в корзину')
+			throw error
+
+			} else {
+				console.log('Набор успешно добавлен в корзину')
+				return row
+			}
 	}
 }
 

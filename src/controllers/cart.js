@@ -1,4 +1,5 @@
-import { userSetsQueries, userSetDessertsQueries, dessertsQueries } from "../db/supabase.js";
+import { cartQueries } from "../db/supabase.js";
+
 import{ addUserToSet } from '../controllers/create-set.js'
 
 export const addSet = async (data) => {
@@ -14,6 +15,23 @@ export const addSet = async (data) => {
 			console.error(error.messange)
 			throw error
 		}
+	}
+}
+
+export const getCartAll = async (userId) => {
+	try {
+		const data = await cartQueries.getAll(userId)
+
+		if (!data) {
+			throw new Error('Ошибка получения данных корзины (getCartAll)')
+		}
+
+		console.log('Данные получены')
+		return data
+
+	} catch (error) {
+		console.error(error.messange)
+		throw error
 	}
 }
 

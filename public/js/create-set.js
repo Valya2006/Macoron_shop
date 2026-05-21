@@ -1,5 +1,5 @@
 // Создание набора, логика + динамическая верстка
-import getCookie from "./common.js";
+import { getCookie }from "./common.js";
 
 
 // получаем общее количество дессертов с бд
@@ -247,7 +247,7 @@ const buildSetPayload = () => {
 const saveSet = async (data) => {
 	const userId = getCookie('userId')
 	try {
-		const response = await fetch(`/cart/add-set/${userId}`, {
+		const response = await fetch(`/api/cart/add-set/${userId}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

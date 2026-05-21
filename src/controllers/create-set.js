@@ -1,4 +1,4 @@
-import { userSetsQueries, userSetDessertsQueries, dessertsQueries } from "../db/supabase.js";
+import { userSetsQueries, userSetDessertsQueries, dessertsQueries, cartQueries } from "../db/supabase.js";
 
 export const getDesserts = async (prev, next) => {
   try {
@@ -26,16 +26,19 @@ export const addUserToSet = async (title, price, items, userId) => {
   try {
       const isAddUser = await userSetsQueries.add({ title, price, userId}) // добавляем пользовательский набор в бд
       const { id: idUserSet } = await userSetsQueries.getSetById(userId, title) // получаем id созданного пользовательского набора
+			const isAddCart = await cartQueries.add({quantity: 1, price, userId, idUserSet})
+			console.log(isAddCart)
       const isSave = await saveDessertToUserSet({items, idUserSet}) // добавляем дессерты поль. набора в бд
 
       if (!isAddUser || !idUserSet || !isSave) {
-        throw new Error
+        throw new Error('Ошибка тут')
       }
       console.log('Пользовательский набор успешно добавлен')
       return true;
 
     } catch (error){ 
-      console.error('Набор не добавлен')
+      console.error(error.messange)
+			console.log(error)
       throw error;
     }
 
