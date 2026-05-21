@@ -14,7 +14,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = Fastify({loger: true});
-
+const supabaseUrl = process.env.SUPABASE_URL;
+// eslint-disable-next-line no-undef
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
+console.log(supabaseUrl, supabaseAnonKey, "hel")
 await app.register(fastifyStatic, {
     root: path.join(__dirname, '../public'),
     prefix: '/'

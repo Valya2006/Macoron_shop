@@ -1,3 +1,4 @@
+
 import { createClient } from '@supabase/supabase-js';
 import dotenv from 'dotenv';
 
@@ -7,7 +8,6 @@ dotenv.config();
 const supabaseUrl = process.env.SUPABASE_URL;
 // eslint-disable-next-line no-undef
 const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
-
 export const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // =============== ЗАПРОСЫ ПОЛЬЗОВАТЕЛЕЙ ======================
@@ -221,4 +221,6 @@ export const cartQueries = {
 			}
 	}
 }
+console.log(supabaseUrl, supabaseAnonKey)
+console.log('1. Файл supabase.js загружен');
 
