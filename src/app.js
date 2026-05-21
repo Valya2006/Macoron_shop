@@ -3,52 +3,52 @@ dotenv.config();
 
 import Fastify from 'fastify';
 import fastifyStatic from '@fastify/static';
-import { supabase } from './db/supabase.js';
+import formbody from '@fastify/formbody';
+import cookie from '@fastify/cookie';
+import view from '@fastify/view';
+import pug from 'pug';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const fastify = Fastify();
+const app = Fastify({loger: true});
 
-fastify.register(fastifyStatic, {
+await app.register(fastifyStatic, {
     root: path.join(__dirname, '../public'),
     prefix: '/'
 });
 
-// Тестовый маршрут
-fastify.get('/api/test', async (req, reply) => {
-    try {
-        console.log('1. Запрос к Supabase...');
-        const { data, error } = await supabase
-            .from('test_items')
-            .select('*');
-        
-        console.log('2. Получили ответ');
-        
-        if (error) {
-            console.log('3. Ошибка Supabase:', error);
-            return reply.code(500).send({ error: error.message });
-        }
-        
-        console.log('4. Успех! Данные:', data);
-        return { success: true, items: data };
-    } catch (err) {
-        console.log('5. Исключение:', err);
-        return reply.code(500).send({ error: err.message, stack: err.stack });
-    }
+await app.register(formbody)
+await app.register(cookie)
+
+await app.register(view, {
+  engine: { pug: pug },
+  root: path.join(__dirname, 'views'),
+  viewExt: 'pug'
 });
 
-// Запуск
+app.register(async (app) => {
+	await app.register(import('./routes/login.js'))
+	await app.register(import('./routes/registration.js'))
+	await app.register(import('./routes/index.js'))
+	await app.register(import('./routes/cart.js'))
+	await app.register(import('./routes/create-set.js'))
+	await app.register(import('./routes/product-card.js'))
+})
+
+app.get('/', (req, res) => {
+		res.redirect('/login')
+})
+
+
 const start = async () => {
     try {
         // eslint-disable-next-line no-undef
-        await fastify.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' });
-        console.log('Сервер запущен на http://localhost:3000');
-        console.log('Тест БД: http://localhost:3000/api/test');
+        await app.listen({ port: process.env.PORT || 3000, host: '0.0.0.0' });
     } catch (err) {
-        fastify.log.error(err);
+        app.log.error(err);
         // eslint-disable-next-line no-undef
         process.exit(1);
     }

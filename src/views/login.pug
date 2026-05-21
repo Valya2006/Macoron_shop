@@ -1,0 +1,34 @@
+doctype html
+html(lang="ru")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Вход в аккаунт
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    link(rel="stylesheet" href="./style/views-style.css")
+    link(rel="stylesheet" href="./style/style.css")
+  body
+    .login-conteiner
+      form.form-conteiner(action='/login' method='POST')
+        h1.h1-login Вход
+        
+        .form-group
+          .form-group-flex
+            .label-input
+              label(for='email') Email
+              input(type='email' id='email' name='email' placeholder='example@mail.com' required autocomplete="username")
+          
+            .label-input
+              label(for='password') Пароль
+              input(type='password' id='password' name='password' placeholder='Введите пароль' required autocomplete="password")
+
+          .errors-container(style=errors && errors.length ? 'display: flex' : 'display: none')
+            each error in errors
+              p #{error}
+
+          .button-container
+            button.pink-button(type='submit') Войти
+            button.blue-button(type='button' href='/registration')
+              a(href='/registration') Зарегестрироваться
+      
+          p.privacy-policy Нажимая на кнопку "Оформить заказ" Я принимаю и соглашаюсь с Договором оферты и разрешаю обработку моих персональных данных в соответствии с Политикой конфиденциальности

@@ -1,0 +1,430 @@
+.main-screen {
+	  display: flex;
+		justify-content: space-between;
+    position: relative;
+    width: 100%;
+    height: 550px;
+    overflow: visible;
+    background-color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.main-screen-content {
+	  display: flex;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 10px; 
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.brand-header {
+	  position: relative;
+    margin-top: 100px;
+		margin-bottom: 10px;
+		left: 60%;
+}
+
+.brand-title {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; 
+    font-size: 22px;
+    color: #292929;
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.brand-since {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600; 
+    font-size: 14px;
+    color: #292929;
+    margin-top: 2px;
+    letter-spacing: 2px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.tagline {
+	position: relative;
+	top: -9%;
+	left: 60%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1;
+    color: #292929;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.description-main-screen {
+	position: relative;
+	left: 57%;
+	top: -10%;
+    font-size: 18px;
+    font-family: 'Proxima Nova', sans-serif;
+    font-weight: 400;
+    color: #292929;
+    line-height: 1.5;
+    text-align: center;
+    width: 550px;
+    margin: 0 auto;
+    padding: 0;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+.main-screen-image-container {
+    position: absolute;
+    z-index: 0;
+		bottom: -50px;
+    right: 0;
+    width: 1000px;
+		height: 700px;
+}
+.main-screen-img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.glow-left, .glow-right {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+}
+
+.circle-1 {
+    width: 268.36px;
+    height: 264.27px;
+    background-color: rgba(111, 217, 251, 0.6);
+    top: 180px;
+    left: -60px;
+    
+}
+
+.circle-2 {
+    width: 282.7px;
+    height: 282.7px;
+    background-color: rgba(194, 226, 255, 0.36);
+    top: 260px;
+    left: -30px;
+   
+}
+
+.circle-3 {
+    width: 276.56px;
+    height: 276.56px;
+    background-color: rgba(255, 168, 241, 0.37);
+    top: 120px;
+    left: -140px;
+    z-index: 2;
+}
+
+.circle-4 {
+    width: 479.37px;
+    height: 479.37px;
+    background-color: rgba(200, 222, 255, 1);
+    top: 50px;
+    left: -180px;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.circle-5 {
+    width: 280px;
+    height: 280px;
+    background-color: rgba(152, 224, 194, 0.38);
+    top: 100px;
+    right: 2%;
+    z-index: 2;
+}
+
+.circle-6 {
+    width: 320px;
+    height: 320px;
+    background-color: rgba(255, 252, 189, 0.45);
+    top: 250px;
+    right: 0%;
+    z-index: 1;
+}
+
+.circle-7 {
+    width: 200px;
+    height: 200px;
+    background-color: rgba(255, 217, 195, 0.61);
+    top: 10px;
+    right: 5%;
+    z-index: 3;
+}
+
+.img-2 {
+	position: absolute;
+	right: 67%;
+	top: 18%;
+}
+
+.img-22 {
+	position: absolute;
+	right: 60%;
+	top: 75%;
+}
+
+.img-1 {
+	position: absolute;
+	right: 85%;
+	top: 30%;
+}
+
+.img-3 {
+	position: absolute;
+	right: 88%;
+	top: 48%;
+}
+
+.img-4 {
+	position: absolute;
+	right: 88%;
+	top: 54%;
+}
+
+.img-5 {
+	position: absolute;
+	right: 80%;
+	top: 65%;
+}
+
+.img-6 {
+	position: absolute;
+	right: 88%;
+	top: 76%;
+}
+
+.img-7 {
+	position: absolute;
+	right: 70%;
+	top: 76%;
+}
+
+.img-8 {
+	position: absolute;
+	right: 45%;
+	top: 74%;
+}
+
+.img-9 {
+	position: absolute;
+	right: 35%;
+	top: 65%;
+}
+
+.img-10 {
+	position: absolute;
+	right: 38%;
+	top: 57%;
+}
+
+.img-11 {
+	position: absolute;
+	right: 32%;
+	top: 45%;
+}
+
+.img-12 {
+	position: absolute;
+	right: 32%;
+	top: 23%;
+}
+
+.section-1 {
+	display: flex;
+	box-sizing: border-box;
+	margin-top: 30px;
+	gap: 20px;
+}
+
+.section-1 a {
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	text-decoration: none;
+	color: #292929;
+}
+
+.section-1 p {
+	font-size: 12px;
+	margin: 0;
+	padding: 0;
+}
+
+.section-1 .sets a {
+	display: flex;
+	box-sizing: border-box;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 20px 0;
+	width: 550px;
+	min-height: 150px;
+
+	
+}
+
+.section-1 .ready-sets {
+	background: linear-gradient(157deg, #ffe7d7  50%, #ffdbc3 50%);
+}
+
+.set-builder {
+	background: linear-gradient(22deg, #ffc2cc  50%, #ffd4dccb 50%);
+}
+
+.section-1 .glow {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	height: 100px;
+	background-color: aliceblue;
+	border-radius: 100%;
+}
+
+.section-2 {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+	width: 75%;
+	min-height: 200px;
+	margin-top: 70px;
+
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	color: #292929;
+	font-size: 13px;
+}
+
+.section-2 h1 {
+	position: absolute;
+	right: 35%;
+	bottom: 80%;
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	color: #292929;
+}
+
+.section-2 hr {
+	position: absolute;
+	border: none;
+  border-top: 3px dotted #ccc;
+	width: 100%;
+	bottom: 50%;
+	z-index: 10;
+}
+
+.section-2 img {
+	position: absolute;
+	z-index: 100;
+}
+
+.section-2 .img-13 {
+	left: 0;
+	bottom: 35%;
+}
+
+.section-2 .img-14 {
+	bottom: 57%;
+	left: 3%;
+}
+
+.section-2 .img-15 {
+	bottom: 40%;
+	right: 75%;
+}
+
+.section-2 .img-16 {
+	bottom: 40%;
+	right: 57%;
+}
+
+.section-2 .img-17 {
+	bottom: 40%;
+	right: 40%;
+}
+
+.section-2 .img-18 {
+	bottom: 40%;
+	right: 20%;
+}
+
+.section-2 .img-19 {
+	bottom: 40%;
+	right: 0%;
+}
+
+.section-2 .text {
+	display: flex;
+	position: absolute;
+	text-align: center;
+	width: 100px;
+	min-height: 50px;
+	font-weight: bold;
+	top: 63%;
+	
+}
+
+.section-2 .img-text-14 {
+	top: 63%;
+	right: 73%;
+}
+
+.section-2 .img-text-15 {
+	right: 56%;
+}
+
+.section-2 .img-text-16 {
+	right: 38%;
+}
+
+.section-2 .img-text-17 {
+	right: 20%;
+}
+
+.section-2 .img-text-18 {
+	right: 0%;
+}
+
+.section-3 {
+	display: flex;
+	position: relative;
+	width: 75%;
+	height: 400px;
+
+	margin-top: 50px;
+}
+
+.section-3 h1 {
+	position: absolute;
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	text-decoration: none;
+	color: #292929;
+
+	left: 39%;
+}

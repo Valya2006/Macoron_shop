@@ -1,0 +1,158 @@
+.login-conteiner {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+
+	width: 650px;
+	min-height: 360px;
+
+	background-color: #F7EBE5;
+	box-sizing: border-box;
+
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+	margin-top: 100px;
+	padding: 10px;
+}
+
+.form-conteiner {
+  display: flex;
+	flex-direction: column;
+	justify-content: start;
+	align-items: center;
+
+	width: 580px;
+	height: 100%;
+}
+
+.h1-login {
+	color: #292929;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+
+	margin: 0;
+}
+
+.form-group-flex {
+	display: flex;
+	flex-direction: row;
+
+}
+
+.form-group input {
+	width: 250px;
+	height: 35px;
+
+	margin: 10px 15px;
+	padding: 0 10px;
+	border: none;
+	outline: none;
+	border-radius: 2px;
+
+	transition: all 0.1s ease;
+}
+
+.form-group input:focus {
+  box-shadow: 0 0 5px 5px #d4baae52;
+  background-color: white;
+	inline-size: none;
+}
+
+.form-group input:hover {
+   background-color: #fffaf8;
+}
+
+.form-group label {
+	font-size: 13px;
+  margin: 0 15px;
+}
+
+.button-container {
+	display: flex;
+	box-sizing: border-box;
+	flex-direction: column;
+	justify-content: center;
+
+	width: 300px;
+	height: 120px;
+}
+
+.button-container button {
+	font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+	height: 45px;
+	margin: 5px;
+	border-radius: 2px;
+}
+
+.button-container .pink-button {
+	border: none;
+	background-color: #E7426A;
+	color: aliceblue;
+	transition: all 0.1s ease;
+}
+
+.button-container .blue-button {
+	background-color: none;
+	border: solid 1px #56A1DA;
+	color: #56A1DA;
+	font-weight: 500;
+	transition: all 0.1s ease;
+}
+
+.button-container .blue-button a {
+	text-decoration: none;
+	color: #56A1DA;
+	transition: all 0.1s ease;
+	padding: 13px 65px;
+}
+
+.button-container .pink-button:hover {
+  background-color: #e7426bdd;
+}
+
+.button-container .blue-button:hover {
+  background-color: #4c88b7;
+	color: aliceblue;
+}
+
+.button-container .blue-button a:hover {
+	text-decoration: none;
+	color: aliceblue;
+}
+
+.privacy-policy {
+	font-size: 9px;
+	margin-left: 30px;
+	text-align: start;
+	margin-bottom: 20px;
+}
+
+.errors-container {
+	display: none;
+	flex-direction: column;
+	box-sizing: border-box;
+	gap: 10px;
+	padding: 10px 0;
+	width: 95%;
+	background-color: rgb(250, 131, 131);
+	border: solid 3px rgb(252, 113, 113);
+	border-radius: 2px;
+	color: aliceblue;
+	font-size: 10px;
+	font-weight: bold;
+}
+
+.errors-container p {
+	padding-left: 20px;
+	margin: 0;
+}
