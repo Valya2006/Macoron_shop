@@ -23,12 +23,12 @@ const aaa = async () => {
 aaa()
 
 const products = [
-	 { id: 1, name: "Сердце", slug: "serdtse", description: "24 штуки в коробке в виде сердца. Ассорти из 6 вкусов.", price: 2800, image: "/image/Секретная гостинная.svg" },
-	 { id: 2, name: "Красота спасёт мир", slug: "krasota-spaset-mir", description: "Набор 16 шт. Вкусы: клубника-базилик, кокос, голубой сыр, парижан.", price: 750, image: "/image/Сладкая провокация.svg" },
-	 { id: 3, name: "Круглый набор", slug: "kruglyy-nabor", description: "40 макаронок в круглой коробке с персональной надписью.", price: 3900, image: "/image/Цветущий сад.svg" }, 
-	 { id: 4, name: "Набор на 9", slug: "nabor-na-9", description: "Набор из 9 штук в квадратной коробке. Вкусы: шоколад, фисташка, вишня.", price: 950, image: "/image/Изумрудный лес.svg" },
-	 { id: 5, name: "Набор на 16", slug: "nabor-na-16", description: "Набор 16 шт. Вкусы: соленая карамель, голубой сыр, парижан, шоколад.",  price: 1500, image: "/image/Для настоящего гурмана.svg" },
-	 { id: 6, name: "Сердце", slug: "serdtse-2", description: "24 штуки в коробке в виде сердца. Ассорти из 6 вкусов.", price: 2500, image: "/image/Цветущий сад.svg" }
+	 { id: 1, name: "Сердце", slug: "serdtse", description: "24 штуки в коробке в виде сердца. Ассорти из 6 вкусов.", price: 2800, image: "/images/Секретная гостинная.svg" },
+	 { id: 2, name: "Красота спасёт мир", slug: "krasota-spaset-mir", description: "Набор 16 шт. Вкусы: клубника-базилик, кокос, голубой сыр, парижан.", price: 750, image: "/images/Сладкая провокация.svg" },
+	 { id: 3, name: "Круглый набор", slug: "kruglyy-nabor", description: "40 макаронок в круглой коробке с персональной надписью.", price: 3900, image: "/images/Цветущий сад.svg" }, 
+	 { id: 4, name: "Набор на 9", slug: "nabor-na-9", description: "Набор из 9 штук в квадратной коробке. Вкусы: шоколад, фисташка, вишня.", price: 950, image: "/images/Изумрудный лес.svg" },
+	 { id: 5, name: "Набор на 16", slug: "nabor-na-16", description: "Набор 16 шт. Вкусы: соленая карамель, голубой сыр, парижан, шоколад.",  price: 1500, image: "/images/Для настоящего гурмана.svg" },
+	 { id: 6, name: "Сердце", slug: "serdtse-2", description: "24 штуки в коробке в виде сердца. Ассорти из 6 вкусов.", price: 2500, image: "/images/Цветущий сад.svg" }
 ];
 console.log('Загружено товаров:', products.length);
 
@@ -91,8 +91,7 @@ function renderProducts() {
     
     grid.innerHTML = products.map(product => `
         <div class="product-card">
-            <div class="product-image" style="width:100%; height:100%; overflow:hidden;">
-            <img src="${product.image}" alt="${product.name}" style="width:100%; height:100%; object-fit:cover;">
+            <div class="product-image" alt="${product.name}">
             </div>
             <div class="product-info">
                 <div class="product-title">${product.name}</div>
