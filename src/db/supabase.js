@@ -186,10 +186,20 @@ export const userSetDessertsQueries = {
 
 export const cartQueries = {
 	getAll: async (userId) => {
-		const { data, error } = await supabase
-			.from('cart')
-			.select('*')
-			.eq('user_id', userId)
+    const { data, error } = await supabase
+        .from('cart')
+        .select(`
+            cost,
+						quantity,
+						user_id,
+            user_sets:user_set_id (
+                id,
+                title,
+                price
+            )
+        `)
+        .eq('user_id', userId);
+			
 		
 		if (error) {
 			console.error('Ошибка получения товаров корзины')

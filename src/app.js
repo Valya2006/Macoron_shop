@@ -38,6 +38,8 @@ app.register(async (app) => {
 	await app.register(import('./routes/product-card.js'))
 })
 
+
+
 app.get('/', (req, res) => {
 		res.redirect('/login')
 })

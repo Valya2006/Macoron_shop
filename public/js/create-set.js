@@ -21,6 +21,7 @@ const getDesserts = async (page) => {
 // добавление готовых карточек в блок
 const renderProducts = async () => {
   const dessertsContainer = document.querySelector('.deserts');
+	console.log(dessertsContainer)
 	const page = document.querySelector('.page')
 	const data = await getDesserts(parseInt(page.textContent))
 
