@@ -16,24 +16,23 @@ const getSets = async () => {
 	}
 }
 
-const aaa = async () => {
-	return await getSets()
-}
-
-aaa()
-
-const products = [
-	 { id: 1, name: "Сердце", slug: "serdtse", description: "24 штуки в коробке в виде сердца. Ассорти из 6 вкусов.", price: 2800, image: "/images/Секретная гостинная.svg" },
-	 { id: 2, name: "Красота спасёт мир", slug: "krasota-spaset-mir", description: "Набор 16 шт. Вкусы: клубника-базилик, кокос, голубой сыр, парижан.", price: 750, image: "/images/Сладкая провокация.svg" },
-	 { id: 3, name: "Круглый набор", slug: "kruglyy-nabor", description: "40 макаронок в круглой коробке с персональной надписью.", price: 3900, image: "/images/Цветущий сад.svg" }, 
-	 { id: 4, name: "Набор на 9", slug: "nabor-na-9", description: "Набор из 9 штук в квадратной коробке. Вкусы: шоколад, фисташка, вишня.", price: 950, image: "/images/Изумрудный лес.svg" },
-	 { id: 5, name: "Набор на 16", slug: "nabor-na-16", description: "Набор 16 шт. Вкусы: соленая карамель, голубой сыр, парижан, шоколад.",  price: 1500, image: "/images/Для настоящего гурмана.svg" },
-	 { id: 6, name: "Сердце", slug: "serdtse-2", description: "24 штуки в коробке в виде сердца. Ассорти из 6 вкусов.", price: 2500, image: "/images/Цветущий сад.svg" }
-];
-console.log('Загружено товаров:', products.length);
-
-
+let products = []; 
 let cart = [];
+
+async function loadProducts() {
+    try {
+        const data = await getSets();
+        if (data && Array.isArray(data)) {
+            products = data; 
+            renderProducts(); 
+            console.log('Загружено товаров:', products.length);
+        } else {
+            console.error('Некорректные данные с сервера:', data);
+        }
+    } catch (error) {
+        console.error('Ошибка загрузки товаров:', error);
+    }
+}
 
 function loadCart() {
     const saved = localStorage.getItem('macaronCart');
@@ -50,9 +49,9 @@ function saveCart() {
 
 function updateCartCount() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const cartCountSpan = document.getElementById('cartCount');
-    if (cartCountSpan) {
-        cartCountSpan.textContent = totalItems;
+    const cartCountHeader = document.getElementById('cartCountHeader');
+    if (cartCountHeader) {
+        cartCountHeader.textContent = totalItems;
     }
 }
 
@@ -88,19 +87,26 @@ function showNotification(message) {
 function renderProducts() {
     const grid = document.getElementById('productsGrid');
     if (!grid) return;
+    if (products.length === 0) {
+        grid.innerHTML = `<p style="text-align:center;color:#666;">Товары не найдены</p>`;
+        return;
+    }
     
     grid.innerHTML = products.map(product => `
         <div class="product-card">
-            <div class="product-image" alt="${product.name}">
+            <div class="product-image">
+                <img src="/images/${product.image_url}" alt="${product.title}">
             </div>
             <div class="product-info">
-                <div class="product-title">${product.name}</div>
+                <div class="product-title">${product.title}</div>
                 <div class="product-description">${product.description}</div>
                 <div class="price-row">
-                    <span class="price">${product.price.toLocaleString()} ₽</span>
-                    <button class="add-to-cart" data-id="${product.id}">В корзину</button>
+                    <span class="price">${product.price.toLocaleString()} руб</span>
+                    <div class="cart-button-wrapper">    
+В корзину</button>
                 </div>
             </div>
+        </div>
         </div>
     `).join('');
     
@@ -115,7 +121,8 @@ function renderProducts() {
         });
     });
 }
+
 document.addEventListener('DOMContentLoaded', function() {
-loadCart();
-renderProducts();
-});
+    loadCart();
+    loadProducts();
+    });
