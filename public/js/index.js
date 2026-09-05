@@ -64,6 +64,7 @@ function addToCart(product) {
         cart.push({
             id: product.id,
             name: product.name,
+            description: product.description,
             price: product.price,
             quantity: 1
         });
@@ -91,18 +92,23 @@ function renderProducts() {
         grid.innerHTML = `<p style="text-align:center;color:#666;">Товары не найдены</p>`;
         return;
     }
-    
+
     grid.innerHTML = products.map(product => `
-        <div class="product-card">
+        <div class="product-card" onclick="window.location.href='/product-card.html?id=${product.id}'" style="cursor: pointer;">>
             <div class="product-image">
                 <img src="/images/${product.image_url}" alt="${product.title}">
             </div>
             <div class="product-info">
                 <div class="product-title">${product.title}</div>
-                <div class="product-description">${product.description}</div>
+                <div class="product-description">${descriptions[product.id] || 'Описание отсутствует'}</div>
                 <div class="price-row">
                     <span class="price">${product.price.toLocaleString()} руб</span>
-                    <div class="cart-button-wrapper">    
+                    <div class="cart-button-wrapper">
+                    <button class="add-to-cart" data-id="${product.id}">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 6.604H5V22.0134H19V6.604Z" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M8.28857 8.48322V4.53691C8.28857 3.12752 9.32213 2 10.5436 2H13.4564C14.6778 2 15.7114 3.12752 15.7114 4.53691V8.48322" stroke="currentColor" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
 В корзину</button>
                 </div>
             </div>
